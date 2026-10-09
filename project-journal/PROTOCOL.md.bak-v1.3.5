@@ -1,6 +1,6 @@
 # 项目记录契约 . repo-watch
 
-> **契约版本：v1.3.6** —— 与本 skill 版本对应。落后时执行 `journal.py upgrade --root <本目录>` 升级。
+> **契约版本：v1.3.5** —— 与本 skill 版本对应。落后时执行 `journal.py upgrade --root <本目录>` 升级。
 > 本文件由 project-journal skill 在立项时生成，是整个项目的**记录宪法**。
 > 任何 Agent、任何人接手这个项目，先读这一页，再干活。**不要删除本文件。**
 
@@ -116,7 +116,7 @@ journal.py stage --set S3 --why "拿到首单"
 journal.py status --root <本目录>            # 一行体检
 journal.py resume --root <本目录>            # 生成补液包
 journal.py add --type <T> --title "..." [--body-file f] [--tags a,b] [--link ADR-0001]
-journal.py update --id PB-0003 --status solved --append-file f.md   # --body-file 同义
+journal.py update --id PB-0003 --status solved --append-file f.md
 journal.py metric --name <> --value <> --unit <> [--source <>]
 journal.py ledger --kind income|cost --amount <> [--currency <>] [--channel <>]
 journal.py stage --set S1 --why "..."
