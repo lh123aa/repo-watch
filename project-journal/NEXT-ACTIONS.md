@@ -4,13 +4,20 @@
 > 规则：只保留"下一步真的要做的"；已完成的勾掉或删除；空的分区保留标题即可，不要留空 checkbox。
 
 ## 进行中（按优先级）
-- [ ] 打 v1.0.0 tag + push + 建 GitHub release(启动 S2 30 天时钟)
-- [ ] 轮换/删除已暴露的 classic PAT `ghp_V74X...`(聊天里出现过,视为泄露)
-- [ ] 设 30 天到期(2026-11-08)数据回收提醒:star/clone/issue 对照成功线
-- [ ] 14 天自用观察期取消(ADR-0001):每日检查降为"被动",异常才记录
+- [ ] 用户手动建 GitHub release v1.0.0(浏览器 Releases 页 1 次点击, 见下方"30 秒操作指引")
+- [ ] 设 30 天到期(2026-11-08)数据回收提醒: star/clone/fork 对照成功线
+- [ ] 安全卫生: 去 GitHub Settings → Developer settings → Personal access tokens, 确认旧 `ghp_V74X...` 已吊销(已 401 即视为失效)
+
+### 30 秒手动建 release(用户侧)
+1. 浏览器打开 https://github.com/lh123aa/repo-watch/releases
+2. 点 "Draft a new release"
+3. tag 选 `v1.0.0`, title 填 `v1.0.0 - 仓库哨兵`
+4. body 粘贴 `release-notes-v100.md` 内容(或留空, tag message 已含摘要)
+5. 点 "Publish release"
+→ 完成后仓库会有 release 页 + 自动 zip/tar 下载 + assets
 
 ## 等待中（被外部阻塞）
-- 30 天 S2 数据(截止 2026-11-08): star / clone / issue, 决定进 S3 还是停推广
+- 30 天 S2 数据(截止 2026-11-08): star / clone / fork / issue, 决定进 S3 还是停推广
 
 ## 已完成（本周期，保留 2 周便于复盘）
 - [x] 2026-10-09 建立项目记录目录
