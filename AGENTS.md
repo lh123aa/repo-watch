@@ -5,7 +5,7 @@
 
 **每次会话必须遵守：**
 
-1. **开工先读**：python "C:/Users/49046/.agents/skills/project-journal/scripts/journal.py" resume --root "project-journal"
+1. **开工先读**：python "E:/程序/github/我的项目/project-journal/scripts/journal.py" resume --root "project-journal"
 2. **收工前写**：把本次增量追加到当日日记 project-journal/journal/YYYY-MM-DD.md
    （决策 / 问题与解法 / 有价值的讨论 / 认知更新 / 真实数字 / 风险 / 里程碑）
 3. **有数字就进表**：journal.py metric ... 、journal.py ledger ...
