@@ -1,0 +1,4 @@
+date,metric,value,unit,source,confidence,note
+2026-10-09,daemon_process_count,2,process,"Get-CimInstance Win32_Process pythonw, 2026-10-09 20:24:22",high,
+2026-10-09,known_issues_logged,25,item,KNOWN_ISSUES.md I-001~I-025,high,
+2026-10-09,recon_repos,0,repo,E:\程序\github 扫描结果,high,

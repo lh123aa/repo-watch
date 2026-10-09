@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "project": "repo-watch",
+  "slug": "repo-watch",
+  "created": "2026-10-09",
+  "stage": "S2",
+  "currency": "USD",
+  "hypothesis": "",
+  "success_line": "",
+  "stop_loss": "",
+  "counters": {
+    "milestone": 1,
+    "decision": 1
+  },
+  "last_entry": "2026-10-09",
+  "last_touch": "2026-10-09T13:33:44",
+  "stage_history": [
+    {
+      "date": "2026-10-09",
+      "from": "",
+      "to": "S0",
+      "why": "立项"
+    },
+    {
+      "date": "2026-10-09",
+      "from": "S0",
+      "to": "S1",
+      "why": "项目骨架 + 自启部署完成, VBS 拉起常驻; 进入 S1 已部署/跑通, 开始 14 天自用观察期"
+    },
+    {
+      "date": "2026-10-09",
+      "from": "S1",
+      "to": "S2",
+      "why": "跳过 S1 观察期(代码已验证, 0 可监控仓库会空转), 直接进 S2 开源 30 天验证需求"
+    }
+  ],
+  "outcome": null,
+  "skill_version": "1.3.5",
+  "upgrades": [
+    {
+      "date": "2026-10-09",
+      "from": "1.2.0",
+      "to": "1.3.1",
+      "changes": [
+        "PROTOCOL.md 升级到契约 v1.3.1（旧版已备份为 PROTOCOL.md.bak-v1.2.0）"
+      ]
+    },
+    {
+      "date": "2026-10-09",
+      "from": "1.3.1",
+      "to": "1.3.2",
+      "changes": [
+        "PROTOCOL.md 升级到契约 v1.3.2（旧版已备份为 PROTOCOL.md.bak-v1.3.1）"
+      ]
+    },
+    {
+      "date": "2026-10-09",
+      "from": "1.3.2",
+      "to": "1.3.3",
+      "changes": [
+        "PROTOCOL.md 升级到契约 v1.3.3（旧版已备份为 PROTOCOL.md.bak-v1.3.2）"
+      ]
+    },
+    {
+      "date": "2026-10-09",
+      "from": "1.3.3",
+      "to": "1.3.5",
+      "changes": [
+        "PROTOCOL.md 升级到契约 v1.3.5（旧版已备份为 PROTOCOL.md.bak-v1.3.3）"
+      ]
+    }
+  ],
+  "protocol_hash": "871a85e907e60b86eda2ab9265b63b2f90107a83",
+  "protocol_version": "1.3.5"
+}

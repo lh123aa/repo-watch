@@ -3,3 +3,6 @@ repo_watch_state.json
 repo_watch.config.json
 __pycache__/
 *.pyc
+
+# 问题记录(开发/部署时手工维护, 不进 GitHub)
+KNOWN_ISSUES.md
