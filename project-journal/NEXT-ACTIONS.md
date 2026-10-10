@@ -5,7 +5,8 @@
 
 ## 进行中（按优先级）
 - [ ] 安全卫生: 去 GitHub Settings → Developer settings → Personal access tokens, 确认旧 `ghp_V74X...` 已吊销(已 401 即视为失效)
-- [ ] **L4 案例+内容资产: 当下就能做, 不等 S2**: 3–5 篇 build-in-public 短文(知乎/即刻/X) + S2 到期后 3000 字案例 + 脱敏资产包(见 IN-0002)
+- [ ] **L4 #1 短文已写好** → 用户审阅定稿 → 三平台(知乎/即刻/X)发布, 回填链接. 文件: `project-journal/publish/l4-content-01-repo-watch-build-in-public.md`
+- [ ] **L4 后续**: #2 跨平台版思路 + #3 脱敏资产包结构(见 IN-0002)
 
 ## 等待中（被外部阻塞）
 - 30 天 S2 数据(截止 2026-11-08, 已设提醒): star / clone / fork / issue
