@@ -5,7 +5,7 @@
 
 ## 进行中（按优先级）
 - [ ] 安全卫生: 去 GitHub Settings → Developer settings → Personal access tokens, 确认旧 `ghp_V74X...` 已吊销(已 401 即视为失效)
-- [ ] **L4 #1 短文已写好** → 用户审阅定稿 → 三平台(知乎/即刻/X)发布, 回填链接. 文件: `project-journal/publish/l4-content-01-repo-watch-build-in-public.md`
+- [ ] **L4 #1 三平台发布包已备好** → 用户按 checklist 粘贴发布(知乎/即刻/X) → 回填 3 个 URL + 记 [M]. 文件: `project-journal/publish/l4-content-01-three-platform-pack.md`（封面 4 张待出，可后补）
 - [ ] **L4 后续**: #2 跨平台版思路 + #3 脱敏资产包结构(见 IN-0002)
 
 ## 等待中（被外部阻塞）
