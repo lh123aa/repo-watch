@@ -10,10 +10,12 @@
   "stop_loss": "",
   "counters": {
     "milestone": 1,
-    "decision": 1
+    "decision": 1,
+    "problem": 1,
+    "solution": 1
   },
-  "last_entry": "2026-10-09",
-  "last_touch": "2026-10-09T15:28:28",
+  "last_entry": "2026-10-11",
+  "last_touch": "2026-10-11T11:04:17",
   "stage_history": [
     {
       "date": "2026-10-09",

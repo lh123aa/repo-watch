@@ -100,12 +100,20 @@ def log(msg):
 
 
 def run_git(args, cwd, timeout=60):
-    """运行 git 命令, 返回 (returncode, stdout+stderr)."""
+    """运行 git 命令, 返回 (returncode, stdout+stderr).
+
+    Windows: 使用 CREATE_NO_WINDOW 标志, 防止 git 子进程弹出黑色控制台窗口
+    (git.exe 在 Windows 上是 GUI 子系统, 但某些子命令如 git-remote-https
+    仍可能 spawn 控制台, 此标志彻底隐藏)."""
+    creationflags = 0
+    if IS_WIN:
+        creationflags = 0x08000000  # CREATE_NO_WINDOW
     try:
         p = subprocess.run(
             ["git", "-c", "core.quotepath=false"] + args,
             cwd=str(cwd), capture_output=True, timeout=timeout,
             text=True, errors="replace",
+            creationflags=creationflags,
         )
         return p.returncode, (p.stdout or "") + (p.stderr or "")
     except subprocess.TimeoutExpired:
@@ -337,9 +345,15 @@ def notify(title, msg):
 
 def confirm_update_interactive(name, info, headless=False):
     """征求同意: 弹原生询问 (tkinter).
-    headless=True (pythonw 后台常驻) 时若 tkinter 不可用, 直接返回 False,
-    绝不回退到 input() —— 无控制台的后台进程没有 stdin, input() 会抛
-    EOFError 卡死整个常驻循环。前台 (python 有控制台) 才允许终端确认。"""
+
+    headless=True (pythonw 后台常驻): 不弹 tkinter 确认窗, 直接静默执行 pull。
+    后台守护本意就是无人值守, 弹 tkinter 窗口会闪烁打扰用户。
+    前台 (python 有控制台): 弹 tkinter 确认窗, 或终端 input() 确认。"""
+    if headless:
+        # 后台常驻: 静默自动 pull, 不弹任何确认窗
+        log(f"{name} 后台模式, 静默执行 git pull (无确认窗)")
+        return True
+    # 前台: 弹 tkinter 确认
     if IS_WIN:
         try:
             import tkinter as tk
@@ -356,9 +370,6 @@ def confirm_update_interactive(name, info, headless=False):
             return answer
         except Exception as e:
             log(f"弹窗确认失败: {e}")
-    if headless:
-        log(f"{name} 后台模式无法弹确认窗, 跳过本次更新 (下一轮再试)")
-        return False
     # 终端确认 (前台, 有控制台时)
     try:
         ans = input(f"是否更新 {name} ? [y/N] ").strip().lower()
@@ -489,14 +500,21 @@ def check_repos(repos):
 
 def process_updates(updates, oneshot=False, headless=False):
     """对每个更新征求同意并自动 pull (用自动识别的 remote + branch).
-    发现多个更新时先弹一条汇总通知, 再逐个确认, 避免通知刷屏."""
+    发现多个更新时先弹一条汇总通知, 再逐个确认, 避免通知刷屏.
+    headless=True (pythonw 后台): 静默自动 pull, 不弹 tkinter 确认窗."""
     if updates:
         names = ", ".join(u["repo"]["name"] for u in updates[:5])
         more = f" 等 {len(updates)} 个" if len(updates) > 5 else ""
-        notify(
-            f"repo-watch: {len(updates)} 个项目有新版本",
-            f"{names}{more} 发现更新。稍后将逐个弹窗确认 (点\"是\"才 git pull)。",
-        )
+        if headless:
+            notify(
+                f"repo-watch: {len(updates)} 个项目有新版本",
+                f"{names}{more} 发现更新, 正在后台自动更新 (静默, 无需确认)。",
+            )
+        else:
+            notify(
+                f"repo-watch: {len(updates)} 个项目有新版本",
+                f"{names}{more} 发现更新。稍后将逐个弹窗确认 (点\"是\"才 git pull)。",
+            )
     for u in updates:
         r = u["repo"]
         remote_name = u.get("remote_name", "origin")
