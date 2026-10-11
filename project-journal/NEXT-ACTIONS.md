@@ -17,6 +17,7 @@
 - [ ] **release v1.0.0 自动 zip 资产待补**: `release.yml` (commit 3cb61ab) 未触发，actions runs=0，release assets=0（仅 GitHub 自动 source zip / tarball）。下次重新 release 时确认 `release.yml` 正确触发并挂上 `repo-watch-v1.0.0.zip`；若 GitHub 账户 Settings→Actions 未启用，先启用；也可在 `release.yml` 加 `workflow_dispatch` 手动触发一次
 
 ## 已完成（本周期，保留 2 周便于复盘）
+- [x] 2026-10-11 修复终端窗口闪烁 (commit 588de09): run_git 加 CREATE_NO_WINDOW + headless 静默自动 pull, 后台守护不再弹黑窗/不闪确认框
 - [x] 2026-10-09 建立项目记录目录
 - [x] 2026-10-09 补全 CHARTER.md 成功线/止损线
 - [x] 2026-10-09 项目骨架 + 自启部署 + 推 GitHub `lh123aa/repo-watch` (commit 2f6b56a)
